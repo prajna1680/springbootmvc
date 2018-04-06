@@ -18,6 +18,7 @@
      <td><c:out value="${item.cuisine}" /></td>
      <td><a href = "/${item.id}" >Delete</td>
      <td><a href = "/restaurantUpdate" >Update</td>
+     <td><a href = "/" >Home</td>
      
    </tr>
  </c:forEach>

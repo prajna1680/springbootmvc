@@ -24,7 +24,6 @@ public class RestaurantServiceMySql implements RestaurantService{
 	@Override
 	public Restaurant addRestaurant(Restaurant restaurant) throws Exception {
 		restaurantDao.addRestaurant(restaurant);
-		System.out.println("check");
 		return restaurant;
 	}
 
@@ -37,15 +36,12 @@ public class RestaurantServiceMySql implements RestaurantService{
 	@Override
 	public boolean deleteRestaurant(String id) {
 		restaurantDao.deleteRestaurant(id);
-		System.out.println("service layer");
 		return true;
-		
 	}
 
 	@Override
 	public Restaurant getRestaurantById(String id) {
 		Restaurant restaurant = restaurantDao.getRestaurantById(id);
-		System.out.println("by id service");
 		return restaurant;
 	}
 
@@ -55,13 +51,7 @@ public class RestaurantServiceMySql implements RestaurantService{
 		restaurant.setRating(restaurant.getRating());
 		restaurant.setLocation(restaurant.getLocation());
 		restaurant.setCuisine(restaurant.getCuisine());
-		
-		System.out.println(restaurant.getName());
 		restaurantDao.updateRestaurant(restaurant);
 		//return restaurant;
 	}
-
-	
-	
-	
 }

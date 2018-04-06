@@ -1,16 +1,12 @@
 package com.stackroute.restaurantspringboot.dao;
 
-
 import java.util.List;
-
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
-import org.hibernate.Session;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.stackroute.restaurantspringboot.entity.Restaurant;
@@ -61,9 +57,7 @@ public class RestaurantDaoImpl implements RestaurantDao{
 	public Restaurant getRestaurantById(String id) {
 		String hql = "From Restaurant as rest where rest.id = ?" ;
 		Restaurant restaurantList = (Restaurant) entityManager.createQuery(hql).setParameter(0, id).getSingleResult();
-		System.out.println("by" +id+ "dao");
-		return restaurantList;
-		
+		return restaurantList;	
 	}
 
 	@Override
@@ -75,12 +69,7 @@ public class RestaurantDaoImpl implements RestaurantDao{
         q.setParameter("location",restaurant.getLocation());
         q.setParameter("cuisine",restaurant.getCuisine());
         q.executeUpdate();
-        System.out.println(restaurant.getName());
-        System.out.println("done");
         //Restaurant updatedRestaurant = getRestaurantById(restaurant.setId(restaurant.getId()));
-        //return updatedRestaurant;
-        
+        //return updatedRestaurant; 
 	}
-	
-
 }
